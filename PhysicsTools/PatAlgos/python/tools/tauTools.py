@@ -158,6 +158,14 @@ hpsTauIDSources = [
     ("againstElectronMediumMVA5", "DiscriminationByMVA5MediumElectronRejection"),
     ("againstElectronTightMVA5", "DiscriminationByMVA5TightElectronRejection"),
     ("againstElectronVTightMVA5", "DiscriminationByMVA5VTightElectronRejection"),
+    ##  added mva6 discriminators
+    ("againstElectronMVA6raw", "DiscriminationByMVA6rawElectronRejection"),
+    ("againstElectronMVA6category", "DiscriminationByMVA6rawElectronRejection:category"),
+    ("againstElectronVLooseMVA6", "DiscriminationByMVA6VLooseElectronRejection"),
+    ("againstElectronLooseMVA6", "DiscriminationByMVA6LooseElectronRejection"),
+    ("againstElectronMediumMVA6", "DiscriminationByMVA6MediumElectronRejection"),
+    ("againstElectronTightMVA6", "DiscriminationByMVA6TightElectronRejection"),
+    ("againstElectronVTightMVA6", "DiscriminationByMVA6VTightElectronRejection"),    
     ##("againstElectronDeadECAL", "DiscriminationByDeadECALElectronRejection"),
     ##("againstMuonLoose", "DiscriminationByLooseMuonRejection"),
     ##("againstMuonMedium", "DiscriminationByMediumMuonRejection"),
@@ -318,7 +326,7 @@ def switchToPFTauHPS(process,
     if hasattr(process, "cleanPatTaus" + patTauLabel + postfix):
         getattr(process, "cleanPatTaus" + patTauLabel + postfix).preselection = \
         'pt > 18 & abs(eta) < 2.3 & tauID("decayModeFinding") > 0.5 & tauID("byLooseCombinedIsolationDeltaBetaCorr3Hits") > 0.5' \
-        + ' & tauID("againstMuonTight3") > 0.5 & tauID("againstElectronVLooseMVA5") > 0.5'
+        + ' & tauID("againstMuonTight3") > 0.5 & tauID("againstElectronVLooseMVA6") > 0.5'
 
 #--------------------------------------------------------------------------------
 # CV: function called by PhysicsTools/PatAlgos/python/slimming/miniAOD_tools.py
