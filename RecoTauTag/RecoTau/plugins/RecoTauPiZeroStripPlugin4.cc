@@ -392,8 +392,8 @@ RecoTauPiZeroStripPlugin4::return_type RecoTauPiZeroStripPlugin4::operator()(con
     double bendCorrPhi = 0.;
     double energySum   = 0.;
     for (auto const& gamma : strip->daughterPtrVector()) {
-      bendCorrEta += (gamma->energy()*seedEtaAssociationDistance_->Eval(gamma->pt()));
-      bendCorrPhi += (gamma->energy()*seedPhiAssociationDistance_->Eval(gamma->pt()));
+      bendCorrEta += (gamma->energy()*candEtaAssociationDistance_->Eval(gamma->pt()));
+      bendCorrPhi += (gamma->energy()*candPhiAssociationDistance_->Eval(gamma->pt()));
       energySum += gamma->energy();
     }
     if ( energySum > 1.e-2 ) {
